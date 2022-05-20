@@ -41,13 +41,14 @@ function countdown() {
 
        //time still on clock
         if (timeLeft >= 1){
-            timerEl.textContent = timeLeft;
+            timer.textContent = timeLeft;
             timeLeft--;
         } //When countdown reaches zero display initials prompt
         else {
-            timerEl.textContent = ""
+            timer.textContent = ""
         }
 
     }, 1000 )
 
 }
+
