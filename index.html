@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz-O-Rama</title>
+    <link rel="stylesheet" href="./Assets/CSS/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="high-score">High Scores</div>
+
+        <div class="countdown" id="timer" >Time Remaining:</div>
+    </header>
+
+    <main>
+        <!--Start Quiz -->
+        <div class="starting-page">
+            <h2>Click "Start Quiz" to test your Knowledge!</h2>
+            <p class = "quiz-info">This quiz consists of 4 questions. You will have 60 seconds. If you answer a question wrong, 4 seconds will be removed from the timer. Don't Fuck Up!!</p>
+            <button class="button" id="startBtn">Start Quiz</button>
+        </div>
+
+        <!--Questions and answers-->
+        <div class="question">
+            <h2 class="question-title"></h2>
+            <div class="answers">
+
+                <button id="answer1"></button>
+                <button id="answer2"></button>
+                <button id="answer3"></button>
+                <button id="answer4"></button>
+
+            </div>
+
+        </div>
+
+
+
+        <!--Input Initials-->
+        <div class="your-score">
+            <h2>Your Final Score Is:<span id="finalScore"></span>  </h2>
+            <form>
+                <input class="input-initials" type="text">
+                <button type="submit" id="initialsBtn" class="button">Submit</button>
+            </form>
+        </div>
+
+
+        <!--High Scores-->
+        <div class="high-scores">
+
+            <h2 class="section-title"> High Scores:</h2>
+
+            <div id="highScoreList"></div>
+
+            <!--Append Scores section?? list??-->
+
+        </div>
+    </main>
+
+
+    <script src="./Assets/JS/script.js"></script>
+</body>
+</html>
