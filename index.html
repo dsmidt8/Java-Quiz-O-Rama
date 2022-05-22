@@ -15,23 +15,25 @@
         <div class="countdown" id="timer" >Time Remaining:</div>
     </header>
 
-    <main>
+    <main class="container">
+
         <!--Start Quiz -->
-        <div class="starting-page">
+        <div id="starting-page">
             <h2>Click "Start Quiz" to test your Knowledge!</h2>
             <p class = "quiz-info">This quiz consists of 4 questions. You will have 60 seconds. If you answer a question wrong, 4 seconds will be removed from the timer. Don't Fuck Up!!</p>
-            <button class="button" id="startBtn">Start Quiz</button>
+            <button class="button" id="start-btn">Start Quiz</button>
+            <button id="next-button" class="button" class="hide">next</button>
         </div>
 
         <!--Questions and answers-->
-        <div class="question">
-            <h2 class="question-title"></h2>
-            <div class="answers">
+        <div id="question-container" class="hide" >
+            <h2 class="question-title" id="question">Question:</h2>
+            <div class="answers-buttons">
 
-                <button id="answer1"></button>
-                <button id="answer2"></button>
-                <button id="answer3"></button>
-                <button id="answer4"></button>
+                <button class="button" id="answer-buttons">A</button>
+                <button class="button" id="answer-buttons">B</button>
+                <button class="button" id="answer-buttons">C</button>
+                <button class="button" id="answer-buttons">D</button>
 
             </div>
 
@@ -40,7 +42,7 @@
 
 
         <!--Input Initials-->
-        <div class="your-score">
+        <div id="your-score" class="hide">
             <h2>Your Final Score Is:<span id="finalScore"></span>  </h2>
             <form>
                 <input class="input-initials" type="text">
@@ -50,7 +52,7 @@
 
 
         <!--High Scores-->
-        <div class="high-scores">
+        <div id="high-scores" class="hide">
 
             <h2 class="section-title"> High Scores:</h2>
 

@@ -27,5 +27,27 @@ main{
     flex-direction: column;
 }
 
+.button{
+    font-size: 20px;
+    padding: 5px;
+    width: 50%;
+    text-align: center;
+    text-decoration: none;
+    color:white;
+    background: navy;
+    border-radius: 5px;
 
+}
 
+.hide {
+    display: none;
+}
+
+button.correct{
+    background-color: green;
+
+}
+
+button.wrong{
+    background-color: red;
+}
