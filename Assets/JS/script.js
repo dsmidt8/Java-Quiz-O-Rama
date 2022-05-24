@@ -146,7 +146,7 @@ function endGame(){
     clearInterval(timeInterval)
 
     finalScore.innerText = totalTime
-
+ 
     initSubmit.addEventListener('click', displayHighScores)
 }
 
@@ -157,7 +157,6 @@ function endGame(){
 //display your scores
 function displayHighScores(event){
     event.preventDefault();
-
     let userInit = initForm.value;
 
     yourScore.classList.add('hide')
@@ -169,7 +168,6 @@ function displayHighScores(event){
         alert("Please Input Initials");
         endGame();
     }
-
 
     // 2. Store initial & score in localStorage
     let userScore = {
