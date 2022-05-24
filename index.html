@@ -10,7 +10,7 @@
 <body>
 
     <header class="header">
-        <div class="high-score">High Scores</div>
+        <a href="" class="high-score" id="high-score-header">High Scores</a>
 
         <div class="countdown" id="count-down" >Time Remaining:<span id="time-left">0</span></div>
     </header>
@@ -20,7 +20,7 @@
         <!--Start Quiz -->
         <div id="starting-page">
             <h2>Click "Start Quiz" to test your Knowledge!</h2>
-            <p class = "quiz-info">This quiz consists of 4 questions. You will have 60 seconds. If you answer a question wrong, 4 seconds will be removed from the timer. Don't Fuck Up!!</p>
+            <p class = "quiz-info">This quiz consists of 4 questions. You will have 60 seconds. If you answer a question wrong, 10 seconds will be removed from the timer.</p>
             <button class="button" id="start-btn">Start Quiz</button>
         </div>
 
@@ -43,8 +43,8 @@
         <div id="your-score" class="hide">
             <h2>Your Final Score Is: <span id="finalScore"></span>  </h2>
             <form>
-                <input class="input-initials" id="inputInit" type="text">
-                <button type="submit" id="initialsBtn" class="button">Submit</button>
+                <input class="input-initials" id="inputInit" type="text" placeholder="Input Initials">
+                <button type="submit" id="initialsBtn" class="submit-button" >Submit</button>
             </form>
         </div>
 
@@ -54,7 +54,9 @@
 
             <h2 class="section-title"> High Scores:</h2>
 
-            <ul id="highScoreList"></ul>
+            <ul id="highScoreList">
+
+            </ul>
 
             <!--Append Scores section?? list??-->
 

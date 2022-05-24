@@ -9,6 +9,7 @@ let answerButtonsElement = document.getElementById("answer-buttons")
 
 let yourScore= document.getElementById("your-score")
 let highScores= document.getElementById("high-scores")
+let highScoreList = document.getElementById('highScoreList')
 
 let shuffledQuestions, currentQuestionIndex
 
@@ -18,6 +19,13 @@ let finalScore = document.getElementById('finalScore')
 let totalTime = 60
 let initSubmit = document.getElementById('initialsBtn')
 let goBackBtn = document.getElementById('Go-Back-Button')
+let highScoreLink = document.getElementById('high-score-header')
+
+//header High Score link clicked
+highScoreLink.addEventListener('click', displayHighScores)
+
+//go Back Clicked = start screen
+goBackBtn.addEventListener('click', resetQuiz)
 
 //Start button clicked
 startButton.addEventListener('click', startGame)
@@ -26,6 +34,7 @@ startButton.addEventListener('click', startGame)
 initSubmit.addEventListener('click', endGame)
 
 function startGame(){
+    totalTime=60
     console.log('started')
     startScreen.classList.add('hide')
     shuffledQuestions = questions.sort(() => Math.random () - .5 )
@@ -96,9 +105,6 @@ function selectAnswer (e){
         totalTime -= 10
     }
 
-
-    console.log (currentQuestionIndex)
-    console.log (questions.length)
     if (questions.length < currentQuestionIndex +2){
         endGame ()
     }else{
@@ -132,25 +138,14 @@ const initForm = document.getElementById('inputInit')
 let userInit = initForm.value;
 
 
-//end game function
+//end game function - displays initials input screen
 function endGame(){
     yourScore.classList.remove('hide')
     questionContainer.classList.add('hide')
+    highScores.classList.add('hide')
     clearInterval(timeInterval)
+
     finalScore.innerText = totalTime
-
-
-    let userInit = initForm.value;
-    // 2. Store initial & score in localStorage
-    let userScore = {
-        initial: userInit,
-        score: totalTime
-    }
-
-    let previousHigh = JSON.parse(localStorage.getItem("highScore")); // Get previous highScore and convert string into object.
-
-    localStorage.setItem("highScore", JSON.stringify(userScore))
-
 
     initSubmit.addEventListener('click', displayHighScores)
 }
@@ -158,24 +153,64 @@ function endGame(){
 
 
 
-var highScoreList = document.getElementById('highScoreList')
+
 //display your scores
 function displayHighScores(event){
     event.preventDefault();
 
+    let userInit = initForm.value;
+
     yourScore.classList.add('hide')
     highScores.classList.remove('hide')
+    startScreen.classList.add('hide')
+    questionContainer.classList.add('hide')
+
+    if (initForm.value === ""){
+        alert("Please Input Initials");
+        endGame();
+    }
 
 
-    let previousHigh = JSON.parse(localStorage.getItem("highScore"));
-    // display values on element, 
-    highScoreList.innertext = previousHigh.score + previousHigh.initial
+    // 2. Store initial & score in localStorage
+    let userScore = {
+        initial: userInit,
+        score: totalTime
+    }
+    localStorage.setItem("highScore", JSON.stringify(userScore))
+    
+  
+    //gets stored values as previousScore
+    let previousScore = JSON.parse(localStorage.getItem("highScore"));
+    //repeats displaying element of previous scores
+    for (let i=0; i< previousScore.length; i++){
+        let displayedScore = document.createElement("li")
+        displayedScore.innerHTML = previousScore[i].initials+ ": " + previousScore[i].score;
+        highScoreList.appendChild(displayedScore)
+    }
 
-    highScoreList.appendChild(previousHigh)
+    clearInterval(timeInterval)
 }
 
 
 
+
+   //inside for loop create new element
+   //text content will be previous high [i] initial:score
+   // append child inside for loop append newly created line element
+   // call displayHighScore event, where to call function ie on click
+    // display values on element, 
+
+
+//Reset quiz for when Go Back button is clicked
+function resetQuiz (){
+     startScreen.classList.remove('hide')
+     highScores.classList.add('hide')
+     questionContainer.classList.add('hide')
+     
+     clearInterval(timeInterval)
+
+     totalTime=60
+ }
 
 
 
@@ -194,12 +229,12 @@ var questions = [
         ] 
     },
     {
-        question: "How many times does this class make my anus burn",
+        question: "what do you use to store objects or arrays in local storage",
         answers: [
-            {text: 'a. once', correct: false},
-            {text: 'b. all the times', correct: true},
-            {text: 'c. my anus is cool as a cucumber', correct: false},
-            {text: 'd. once to twice a week', correct:false},
+            {text: 'a. JSON.parse', correct: false},
+            {text: 'b. JSON.stringify', correct: true},
+            {text: 'c. JASON.spotify', correct: false},
+            {text: 'd. JAMON.rastify', correct:false},
         ]
     }, 
     {
