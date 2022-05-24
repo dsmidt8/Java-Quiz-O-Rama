@@ -1,4 +1,4 @@
-//variables that relate to HTML document
+//variables that relate to HTML document===============
 let startButton = document.getElementById("start-btn")
 let nextButton = document.getElementById("next-button")
 let startScreen = document.getElementById("starting-page")
@@ -17,10 +17,14 @@ let countDownEl = document.getElementById('count-down')
 let finalScore = document.getElementById('finalScore')
 let totalTime = 60
 let initSubmit = document.getElementById('initialsBtn')
+let goBackBtn = document.getElementById('Go-Back-Button')
 
 //Start button clicked
 startButton.addEventListener('click', startGame)
+
+//initals submit button clicked
 initSubmit.addEventListener('click', displayHighScores)
+
 
 function startGame(){
     console.log('started')
@@ -48,8 +52,6 @@ function startTimer(){
         else {
             endGame()
         }
-        
-    
     }, 1000)
 }
 
@@ -104,8 +106,6 @@ function selectAnswer (e){
         currentQuestionIndex++
         setNextQuestion()
     }
-  
-    
     
 }
 
@@ -161,7 +161,9 @@ function endGame(){
 
 var highScoreList = document.getElementById('highScoreList')
 //display your scores
-function displayHighScores(){
+function displayHighScores(event){
+    event.preventDefault();
+
     yourScore.classList.add('hide')
     highScores.classList.remove('hide')
 
@@ -169,6 +171,8 @@ function displayHighScores(){
     let previousHigh = JSON.parse(localStorage.getItem("highScore"));
     // display values on element, 
     highScoreList.innertext = previousHigh.score + previousHigh.initial
+
+    highScoreList.appendChild(previousHigh)
 }
 
 
