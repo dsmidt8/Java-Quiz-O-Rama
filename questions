@@ -1,0 +1,37 @@
+var questions = [
+    {
+        question: "What must you do to a function to make it run in JavaScript?",
+        answers: [
+            {text: 'a. Close it', correct: false},
+            {text: 'b. Open it', correct: false},
+            {text: 'c. call it', correct: true},
+            {text: 'd. Drop it like it is hot', correct: false},
+        ] 
+    },
+    {
+        question: "How many times does this class make my anus burn",
+        answers: [
+            {text: 'a. once', correct: false},
+            {text: 'b. all the times', correct: true},
+            {text: 'c. my anus is cool as a cucumber', correct: false},
+            {text: 'd. once to twice a week', correct:false},
+        ]
+    }, 
+    {
+        question: "What javascript rule gets Id's from the HTML document?",
+        answers: [
+            {text: 'a. .getElementById', correct: true},
+            {text: 'b. .getAttribute', correct: false },
+            {text: 'c. .gitPull', correct: false },
+            {text: 'd. the retreive from HTML function', correct: false },
+        ]
+    },
+    {
+        question: "What HTML element do you use to link a JS file?",
+        answers: [
+            {text: 'a. <link>', correct: false},
+            {text: 'b. <script>', correct: true},
+            {text: 'c. <alert>"', correct:false},
+            {text: 'd. <source>', correct:false},
+        ]
+    },]

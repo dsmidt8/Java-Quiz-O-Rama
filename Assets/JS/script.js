@@ -7,15 +7,20 @@ let questionContainer = document.getElementById("question-container")
 let questionElement = document.getElementById("question")
 let answerButtonsElement = document.getElementById("answer-buttons")
 
-
+let yourScore= document.getElementById("your-score")
+let highScores= document.getElementById("high-scores")
 
 let shuffledQuestions, currentQuestionIndex
 
-
+let timeLeft = document.getElementById("time-left")
+let countDownEl = document.getElementById('count-down')
+let finalScore = document.getElementById('finalScore')
+let totalTime = 60
+let initSubmit = document.getElementById('initialsBtn')
 
 //Start button clicked
 startButton.addEventListener('click', startGame)
-
+initSubmit.addEventListener('click', displayHighScores)
 
 function startGame(){
     console.log('started')
@@ -24,8 +29,29 @@ function startGame(){
     currentQuestionIndex = 0;
     questionContainer.classList.remove('hide')
     setNextQuestion()
+
+    
+    timeLeft.innerText= totalTime
+    startTimer()
+   
 }
 
+
+//timer Functions
+var timeInterval
+function startTimer(){
+     timeInterval = setInterval(function (){
+        if (totalTime>0) {
+            timeLeft.innerText = totalTime;
+            totalTime--;
+        }
+        else {
+            endGame()
+        }
+        
+    
+    }, 1000)
+}
 
 //shuffling questions
 function setNextQuestion(){
@@ -50,8 +76,6 @@ function showQuestion(question){
 }
 
 function resetState(){
-    clearStatusClass(document.body)
-    nextButton.classList.add('hide')
     while(answerButtonsElement.firstChild){
          answerButtonsElement.removeChild
          (answerButtonsElement.firstChild)
@@ -62,13 +86,26 @@ function resetState(){
 function selectAnswer (e){
     let selectedButton = e.target
     let correct = selectedButton.dataset.correct
-    setStatusClass(document.body, correct)
+    setStatusClass(selectedButton, correct)
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
     })
 
-    currentQuestionIndex++
-    setNextQuestion()
+    if (!correct) {
+        totalTime -= 10
+    }
+
+
+    console.log (currentQuestionIndex)
+    console.log (questions.length)
+    if (questions.length < currentQuestionIndex +2){
+        endGame ()
+    }else{
+        currentQuestionIndex++
+        setNextQuestion()
+    }
+  
+    
     
 }
 
@@ -78,10 +115,7 @@ function setStatusClass(element, correct){
             element.classList.add('correct')
         } else{
             element.classList.add('wrong')
-
-        }   
-
-        
+        }       
     
 }
 
@@ -89,13 +123,63 @@ function clearStatusClass(element){
     element.classList.remove('correct')
     element.classList.remove('wrong')
 }
-//timer 
 
 
-//high scores
 
 
-//Questions Array
+
+//add event listener function for form element selector .value
+const initForm = document.getElementById('inputInit')
+let userInit = initForm.value;
+
+
+//end game function
+function endGame(){
+    yourScore.classList.remove('hide')
+    questionContainer.classList.add('hide')
+    clearInterval(timeInterval)
+    finalScore.innerText = totalTime
+
+
+    let userInit = initForm.value;
+    // 2. Store initial & score in localStorage
+    let userScore = {
+        initial: userInit,
+        score: totalTime
+    }
+
+    let previousHigh = JSON.parse(localStorage.getItem("highScore")); // Get previous highScore and convert string into object.
+
+    localStorage.setItem("highScore", JSON.stringify(userScore))
+
+
+    initSubmit.addEventListener('click', displayHighScores)
+}
+
+
+
+
+var highScoreList = document.getElementById('highScoreList')
+//display your scores
+function displayHighScores(){
+    yourScore.classList.add('hide')
+    highScores.classList.remove('hide')
+
+
+    let previousHigh = JSON.parse(localStorage.getItem("highScore"));
+    // display values on element, 
+    highScoreList.innertext = previousHigh.score + previousHigh.initial
+}
+
+
+
+
+
+
+
+
+
+//Questions Array==================================================
 var questions = [
     {
         question: "What must you do to a function to make it run in JavaScript?",

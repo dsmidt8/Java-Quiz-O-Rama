@@ -43,11 +43,18 @@ main{
     display: none;
 }
 
-button.correct{
+p.correct{
     background-color: green;
 
 }
 
-button.wrong{
+p.wrong{
     background-color: red;
 }
+
+.answers-buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+

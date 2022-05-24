@@ -12,7 +12,7 @@
     <header class="header">
         <div class="high-score">High Scores</div>
 
-        <div class="countdown" id="timer" >Time Remaining:</div>
+        <div class="countdown" id="count-down" >Time Remaining:<span id="time-left">0</span></div>
     </header>
 
     <main class="container">
@@ -22,18 +22,16 @@
             <h2>Click "Start Quiz" to test your Knowledge!</h2>
             <p class = "quiz-info">This quiz consists of 4 questions. You will have 60 seconds. If you answer a question wrong, 4 seconds will be removed from the timer. Don't Fuck Up!!</p>
             <button class="button" id="start-btn">Start Quiz</button>
-            <button id="next-button" class="button" class="hide">next</button>
         </div>
 
         <!--Questions and answers-->
         <div id="question-container" class="hide" >
             <h2 class="question-title" id="question">Question:</h2>
-            <div class="answers-buttons">
+            <div class="answers-buttons" id="answer-buttons">
 
-                <button class="button" id="answer-buttons">A</button>
-                <button class="button" id="answer-buttons">B</button>
-                <button class="button" id="answer-buttons">C</button>
-                <button class="button" id="answer-buttons">D</button>
+           
+               
+                <p id="answerCheck" class="hide"></p>
 
             </div>
 
@@ -45,14 +43,14 @@
         <div id="your-score" class="hide">
             <h2>Your Final Score Is:<span id="finalScore"></span>  </h2>
             <form>
-                <input class="input-initials" type="text">
+                <input class="input-initials" id="inputInit" type="text">
                 <button type="submit" id="initialsBtn" class="button">Submit</button>
             </form>
         </div>
 
 
         <!--High Scores-->
-        <div id="high-scores" class="hide">
+        <div id="high-scores" class = "hide">
 
             <h2 class="section-title"> High Scores:</h2>
 
@@ -60,6 +58,7 @@
 
             <!--Append Scores section?? list??-->
 
+            <button id = "Go Back Button" class = "button">Go Back</button>
         </div>
     </main>
 
