@@ -23,8 +23,7 @@ let goBackBtn = document.getElementById('Go-Back-Button')
 startButton.addEventListener('click', startGame)
 
 //initals submit button clicked
-initSubmit.addEventListener('click', displayHighScores)
-
+initSubmit.addEventListener('click', endGame)
 
 function startGame(){
     console.log('started')
