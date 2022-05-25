@@ -1,5 +1,7 @@
 
-
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 
 header {
     display: flex;
@@ -36,7 +38,7 @@ main{
     color:white;
     background: navy;
     border-radius: 5px;
-
+    margin: 5px;
 }
 
 .hide {
