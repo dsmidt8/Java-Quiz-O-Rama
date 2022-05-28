@@ -1,42 +1,28 @@
-# 04 Web APIs: Code Quiz
+# Java Quiz - O - Rama
 
-As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple-choice questions and interactive challenges. For this challenge, you will build a timed code quiz that's made up of multiple-choice questions. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
-
-## User Story
-
-```
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
-
-## Acceptance Criteria
-
-```
-GIVEN I am taking a code quiz
-WHEN I click the Start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
-```
-
-The following animation demonstrates the application functionality:
-
-![Demonstration of the Coding Quiz Challenge.](./Assets/04-web-apis-homework-demo.gif)
-
-### Review
-
-You are required to submit the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+[See the deployment](https://dsmidt8.github.io/Java-Quiz-O-Rama/))  
+[Explore the code](https://github.com/dsmidt8/Java-Quiz-O-Rama))
 
 ---
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+
+## About the Project
+In this project I used java script to create a quiz that:
+* prompts the user to start the quiz
+* Displays four unique questions in a random order
+* Has user input Initals to commit their high score to local storage
+* Has a link at the top to take the user to the high scores
+## Usage
+
+To run the program open the link in your browser
+
+## Getting Started
+
+To start the quiz click 'Start Quiz' button on initial page
+
+## Process
+
+* I started by creating a list of requirements for the website
+* I then started by creating sections on HTML for each portion of the quiz
+* I then added the class 'hide' so that I could remove the sections that did not need to be displayed.
+* I then researched where there were knowledge gaps in java script knowlege
+
